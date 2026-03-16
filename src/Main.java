@@ -7,8 +7,8 @@ import problem.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        // BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("prj01/test2.txt")));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("test2.txt")));
 
         final int casesCount = Integer.parseInt(reader.readLine());
         Land[] cases = new Land[casesCount];
@@ -29,18 +29,18 @@ public class Main {
             cases[caseIndex] = new Land(rowsCount, columnsCount, maxConsecutiveJumps, jumpLimit, tiles);
         }
 
-        System.out.println("DP");
-        final long dpStart = System.nanoTime();
+        // System.out.println("DP");
+        // final long dpStart = System.nanoTime();
         for (int caseIndex = 0; caseIndex < casesCount; caseIndex++) {
             final Land land = cases[caseIndex];
-            final long caseStart = System.nanoTime();
+            // final long caseStart = System.nanoTime();
             final long totalPaths = Adventure.crystalCastleDP(land);
-            final long caseEnd = System.nanoTime();
-            System.out.println("Case " + (caseIndex + 1) + ": " + totalPaths + " (" + ((caseEnd - caseStart) / 1_000_000.0) + " ms)"); // DEBUG
-            // System.out.println(totalPaths); // FINAL
+            // final long caseEnd = System.nanoTime();
+            // System.out.println("Case " + (caseIndex + 1) + ": " + totalPaths + " (" + ((caseEnd - caseStart) / 1_000_000.0) + " ms)"); // DEBUG
+            System.out.println(totalPaths); // FINAL
         }
-        final long dpEnd = System.nanoTime();
-        System.out.println("DP total time: " + ((dpEnd - dpStart) / 1_000_000.0) + " ms");
+        // final long dpEnd = System.nanoTime();
+        // System.out.println("DP total time: " + ((dpEnd - dpStart) / 1_000_000.0) + " ms");
 
         reader.close();
     }
