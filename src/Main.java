@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        // input reading and parsing
         final int casesCount = Integer.parseInt(reader.readLine());
         Land[] cases = new Land[casesCount];
         for (int caseIndex = 0; caseIndex < casesCount; caseIndex++) {
@@ -27,6 +28,7 @@ public class Main {
             cases[caseIndex] = new Land(rowsCount, columnsCount, maxConsecutiveJumps, jumpLimit, tiles);
         }
 
+        // problem solving
         for (int caseIndex = 0; caseIndex < casesCount; caseIndex++) {
             final Land land = cases[caseIndex];
             final long totalPaths = Adventure.crystalCastleDP(land);

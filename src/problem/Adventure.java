@@ -1,11 +1,14 @@
 package problem;
 
+// class to solve the problem
 public class Adventure {
     static final int MODULO = 1_000_000_007;
 
     public static long crystalCastleDP(final Land land) {
+        // +1 to have storage for over the limit
         final int overConsecutiveJumps = land.maxConsecutiveJumps + 1;
         final int overJumpLimit = land.jumpLimit + 1;
+        // long is initialized to 0
         long[][][][] dp = new long[land.rows][land.columns][overConsecutiveJumps + 1][overJumpLimit + 1];
 
         // if I'm at the castle tile within the jump limits, I have one path
@@ -18,7 +21,7 @@ public class Adventure {
         for(int row = land.rows - 1; row >= 0 ; row--) {
             for(int col = land.columns - 1; col >= 0; col--) {
                 // skip castle case
-                if(col == land.columns - 1 && row == land.rows - 1) {
+                if(atCastle(land, row, col)) {
                     continue;
                 }
 
@@ -40,7 +43,6 @@ public class Adventure {
                         }
 
                         long totalPaths = 0;
-                        // theses check could maybe be avoided by making the array bigger...?
                         // conversion is 1:1 with recursive
                         if(!isOutOfBounds(land, row, col + 1)) {
                             totalPaths = (totalPaths + dp[row][col + 1][0][totalJumps]) % MODULO; // R

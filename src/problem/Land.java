@@ -1,5 +1,6 @@
 package problem;
 
+// class to hold the fixed data for the problem
 public class Land {
     public int rows;
     public int columns;

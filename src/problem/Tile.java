@@ -1,5 +1,6 @@
 package problem;
 
+// class representing a tile in the problem
 public class Tile {
     public enum Type {
         SAFE,
