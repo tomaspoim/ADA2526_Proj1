@@ -11,18 +11,18 @@ public class Tile {
 
     public Type type;
 
-    public Tile(String input) {
+    public Tile(char input) {
         switch (input) {
-            case ".":
+            case '.':
                 this.type = Type.SAFE;
                 break;
-            case "X":
+            case 'X':
                 this.type = Type.DIAGONAL_BARRIER;
                 break;
-            case "J":
+            case 'J':
                 this.type = Type.JUMP_BARRIER;
                 break;
-            case "#":
+            case '#':
                 this.type = Type.QUICK_SAND;
                 break;
             default:
